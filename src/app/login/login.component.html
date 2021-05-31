@@ -1,14 +1,16 @@
 <p>{{user|json}}</p>
 
-<form action="" (ngSubmit)="onSubmit()">
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
      <mat-dialog-content>
          <p>
              <mat-form-field>
-                 <input matInput placeholder="Username" type="text"  [(ngModel)]="user.username" name="username">
+                 <input matInput placeholder="Username" type="text"  [(ngModel)]="user.username" name="username" #username="ngModel">
+                 <mat-error *ngIf="username.errors?.required">Password is required</mat-error>
              </mat-form-field>
                <span class="flex-spacer"></span>
              <mat-form-field>
-                 <input matInput placeholder="Password" type="password"  [(ngModel)]="user.password" name="passowrd">
+                 <input matInput placeholder="Password" type="password"  [(ngModel)]="user.password" name="password" #password="ngModel">
+                 <mat-error *ngIf="password.errors?.required">Password is required</mat-error>
              </mat-form-field>
              <mat-checkbox  [(ngModel)]="user.remember" name="remember">Rember me</mat-checkbox>
          </p>
@@ -16,6 +18,6 @@
      <mat-dialog-actions>
          <span class="flex-spacer"></span>
          <button mat--dialog-button-close mat-button>  Cancel</button>
-         <button type="submit"     mat-button  class="background-primary text-floral-white">Log in</button>
+         <button type="submit"   [disabled]="loginForm.form.invalid && !loginForm.form.touched"  mat-button  class="background-primary text-floral-white">Log in</button>
      </mat-dialog-actions>
 </form>
