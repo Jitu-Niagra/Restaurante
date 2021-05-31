@@ -31,10 +31,18 @@ import { PromotionService } from './service/promotion.service';
 import { LeaderService } from './service/leader.service';
 import { LoginComponent } from './login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
+
+
+
 @NgModule({
   declarations: [AppComponent,MenuComponent, DishdetailComponent, HeaderComponent, FooterComponent, AboutComponent, HomeComponent, ContactComponent, LoginComponent],
   imports: [
-
   BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -45,7 +53,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,  
     FlexLayoutModule,
     
   ],

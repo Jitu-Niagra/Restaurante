@@ -1,6 +1,21 @@
-<mat-toolbar color="primary">
-            Login
-            <span class="flex-spacer"></span>
-            <button mat-button   mat-dialog-close  >&times;</button>
-            
-</mat-toolbar>
+<p>{{user|json}}</p>
+
+<form action="" (ngSubmit)="onSubmit()">
+     <mat-dialog-content>
+         <p>
+             <mat-form-field>
+                 <input matInput placeholder="Username" type="text"  [(ngModel)]="user.username" name="username">
+             </mat-form-field>
+               <span class="flex-spacer"></span>
+             <mat-form-field>
+                 <input matInput placeholder="Password" type="password"  [(ngModel)]="user.password" name="passowrd">
+             </mat-form-field>
+             <mat-checkbox  [(ngModel)]="user.remember" name="remember">Rember me</mat-checkbox>
+         </p>
+     </mat-dialog-content>
+     <mat-dialog-actions>
+         <span class="flex-spacer"></span>
+         <button mat--dialog-button-close mat-button>  Cancel</button>
+         <button type="submit"     mat-button  class="background-primary text-floral-white">Log in</button>
+     </mat-dialog-actions>
+</form>
